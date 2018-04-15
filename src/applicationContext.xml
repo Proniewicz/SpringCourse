@@ -2,7 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myFortune"
+          class="springdemo.HappyFortuneService">
+    </bean>
+
     <bean id="myCoach"
         class="springdemo.FootballCoach">
+        <constructor-arg ref="myFortune"/>
+    </bean>
+
+    <bean id="myCricketCoach"
+          class="springdemo.CricketCoach">
+        <property name="fortuneService" ref="myFortune"/>
     </bean>
 </beans>
